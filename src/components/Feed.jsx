@@ -19,7 +19,7 @@ const Feed = () => {
 
   const fetchDataPost=async()=>{
     try {
-       const res=await  axios.post("http://localhost:8000/api/post/allpost/timeline",{
+       const res=await  axios.post("https://deploybackend-p9x3.onrender.com/api/post/allpost/timeline",{
         userId:user._id,
        },{
         headers: {
@@ -34,7 +34,7 @@ const Feed = () => {
   }
 
   useEffect(()=>{
-    const socket=io("ws://localhost:8000");
+    const socket=io("https://deploybackend-p9x3.onrender.com");
     dispatch(addSocket(socket))
 
     fetchDataPost()

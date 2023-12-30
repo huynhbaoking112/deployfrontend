@@ -9,7 +9,7 @@ const FullChat = ({currentConversation}) => {
 
     const fetchTheChat=async()=>{
         try {
-            const res=await axios.get("http://localhost:8000/api/message/"+currentConversation?._id)
+            const res=await axios.get("https://deploybackend-p9x3.onrender.com/api/message/"+currentConversation?._id)
             const chatNew=res.data.message.sort((a,b)=>new Date(a.createdAt)-new Date(b.createdAt))
             setAllChat(chatNew)
         } catch (error) {

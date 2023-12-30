@@ -28,7 +28,7 @@ const Setting = () => {
             formData.append("city", city);
             formData.append("from", from);
             formData.append('image',fileAvatar)
-            const res = await axios.patch("http://localhost:8000/api/user/"+user._id, formData, {
+            const res = await axios.patch("https://deploybackend-p9x3.onrender.com/api/user/"+user._id, formData, {
               headers: {
                 "content-type": "multipart/form-data",
               },

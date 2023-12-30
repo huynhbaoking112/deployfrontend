@@ -38,7 +38,7 @@ const PostPage = () => {
   const fetchTheCommentWithPost = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/comment/post/" + postid
+        "https://deploybackend-p9x3.onrender.com/api/comment/post/" + postid
       );
       setAllCommentReply(res.data.allComment.length);
     } catch (error) {
@@ -51,7 +51,7 @@ const PostPage = () => {
   const HandleLike = async () => {
     try {
       const res = await axios.patch(
-        "http://localhost:8000/api/post/like/" + postPage._id,
+        "https://deploybackend-p9x3.onrender.com/api/post/like/" + postPage._id,
         {
           userId: userPost._id,
         }
@@ -76,9 +76,9 @@ const PostPage = () => {
 
   const fetchThePost = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/post/" + postid);
+      const res = await axios.get("https://deploybackend-p9x3.onrender.com/api/post/" + postid);
       const resUser = await axios.get(
-        "http://localhost:8000/api/user?" + "userId=" + res.data.post.userId
+        "https://deploybackend-p9x3.onrender.com/api/user?" + "userId=" + res.data.post.userId
       );
       setUserPost(resUser.data.user);
       setPostPage(res.data.post);

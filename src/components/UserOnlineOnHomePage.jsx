@@ -8,7 +8,7 @@ const UserOnlineOnHomePage = ({friend}) => {
 
     const fetchTheFriend=async()=>{
         try {
-            const res=await axios.get("http://localhost:8000/api/user?userId="+friend)
+            const res=await axios.get("https://deploybackend-p9x3.onrender.com/api/user?userId="+friend)
            setUserFriend(res.data.user);
         } catch (error) {
             console.log(error);

@@ -21,7 +21,7 @@ const Register = () => {
         try {
             if(password!=passwordAgain) throw new Error("Confirmation password does not match")
 
-            const res= await axios.post("http://localhost:8000/api/auth/register",{
+            const res= await axios.post("https://deploybackend-p9x3.onrender.com/api/auth/register",{
                 username:username,
                 email:email,
                 password:password

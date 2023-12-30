@@ -27,7 +27,7 @@ const Share = ({ img, userId }) => {
       formData.append("desc", desc);
       formData.append("userId", user._id);
       formData.append("image", file);
-      const res = await axios.post("http://localhost:8000/api/post", formData, {
+      const res = await axios.post("https://deploybackend-p9x3.onrender.com/api/post", formData, {
         headers: {
           "content-type": "multipart/form-data",
         },

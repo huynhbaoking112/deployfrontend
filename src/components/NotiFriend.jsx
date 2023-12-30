@@ -17,7 +17,7 @@ const NotiFriend = ({id,HandleSetOpenFriend}) => {
 
     const fetchUser=async()=>{
         try {
-            const res=await axios.get("http://localhost:8000/api/user?userId=" + id)
+            const res=await axios.get("https://deploybackend-p9x3.onrender.com/api/user?userId=" + id)
             setUser(res.data.user)
         } catch (error) {
             console.log(error);

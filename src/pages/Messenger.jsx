@@ -74,7 +74,7 @@ const Messenger = () => {
   const fetchTheconversation = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/conversation/" + user._id
+        "https://deploybackend-p9x3.onrender.com/api/conversation/" + user._id
       );
       const sortConver = res.data.conversation.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
@@ -93,7 +93,7 @@ const Messenger = () => {
   const fetchTheChat = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/message/" + currentConversation?._id
+        "https://deploybackend-p9x3.onrender.com/api/message/" + currentConversation?._id
       );
       const chatNew = res.data.message.sort(
         (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
@@ -113,7 +113,7 @@ const Messenger = () => {
       );
       const Id = theFriend[0];
       const res = await axios.get(
-        "http://localhost:8000/api/user?userId=" + Id
+        "https://deploybackend-p9x3.onrender.com/api/user?userId=" + Id
       );
       setFriendChat(res.data.user);
     } catch (error) {
@@ -142,7 +142,7 @@ const Messenger = () => {
       if (!content) {
         return;
       }
-      const res = await axios.post("http://localhost:8000/api/message", {
+      const res = await axios.post("https://deploybackend-p9x3.onrender.com/api/message", {
         conversationId: currentConversation._id,
         sender: user._id,
         text: content,
@@ -170,7 +170,7 @@ const Messenger = () => {
       if (index != -1) {
         setCurrentConversation(allTheConversation[index]);
       } else {
-        const res = await axios.post("http://localhost:8000/api/conversation", {
+        const res = await axios.post("https://deploybackend-p9x3.onrender.com/api/conversation", {
           senderId: user._id,
           receiverId: userId,
         });

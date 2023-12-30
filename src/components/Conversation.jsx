@@ -14,7 +14,7 @@ const Conversation = ({conversation}) => {
     const fetchTheUserWithConversation=async()=>{
         const userWithConversation=conversation?.members.filter((e)=>e!=user._id)
         try {
-            const userConversation= await axios.get("http://localhost:8000/api/user?userId="+userWithConversation)
+            const userConversation= await axios.get("https://deploybackend-p9x3.onrender.com/api/user?userId="+userWithConversation)
            setUserContact(userConversation.data.user);
         } catch (error) {
             console.log(error);
@@ -23,7 +23,7 @@ const Conversation = ({conversation}) => {
 
     const fetchNewContact=async()=>{
         try {
-            const res=await axios.get("http://localhost:8000/api/message/"+conversation?._id)
+            const res=await axios.get("https://deploybackend-p9x3.onrender.com/api/message/"+conversation?._id)
             const contact= res.data.message
             const contactNew=contact.sort((a,b)=> (new Date(b?.createdAt))-new Date(a?.createdAt))
             setNewMess(contactNew[0]?.text.slice(0,10));

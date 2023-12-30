@@ -14,7 +14,7 @@ const VerifyPage = () => {
         useEffect(()=>{
                    const  sendMail=async()=>{
                         try {
-                                const res=await axios.post("http://localhost:8000/api/auth/resendToken/"+id)
+                                const res=await axios.post("https://deploybackend-p9x3.onrender.com/api/auth/resendToken/"+id)
                                 toast.success("Token đã gửi vào email thành công!", {
                                         position: toast.POSITION.TOP_RIGHT,
                                       }); 
@@ -46,7 +46,7 @@ const VerifyPage = () => {
                               });
                 }
                 const token=value1*1000+value2*100+value3*10+value4*1
-                const res=await axios.post("http://localhost:8000/api/auth/verify/"+id,{
+                const res=await axios.post("https://deploybackend-p9x3.onrender.com/api/auth/verify/"+id,{
                         token
                 })
                 localStorage.setItem('token', res.data.token);
@@ -62,7 +62,7 @@ const VerifyPage = () => {
     const HandleResendToken=async(e)=>{
         e.preventDefault()
         try {
-                const res=await axios.post("http://localhost:8000/api/auth/resendToken/"+id)
+                const res=await axios.post("https://deploybackend-p9x3.onrender.com/api/auth/resendToken/"+id)
                 toast.success("Refesh token thành công!", {
                         position: toast.POSITION.TOP_RIGHT,
                       }); 

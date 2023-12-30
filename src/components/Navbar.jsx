@@ -33,7 +33,7 @@ const HandleFriend=async()=>{
   setNewFriend(false)
   socket.emit("daxemban",{userId:user._id})
 try {
-  const res=await axios.get("http://localhost:8000/api/user?userId=" + user._id)
+  const res=await axios.get("https://deploybackend-p9x3.onrender.com/api/user?userId=" + user._id)
 
   setAllFriend(res.data.user.acceptUser)
 
@@ -69,7 +69,7 @@ try {
 
     socket.emit("daxem")
 
-    const res=await axios.get("http://localhost:8000/api/notification/"+user._id)
+    const res=await axios.get("https://deploybackend-p9x3.onrender.com/api/notification/"+user._id)
     
    
     setAllNoti(res.data.notificationAll)

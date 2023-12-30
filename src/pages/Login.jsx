@@ -19,7 +19,7 @@ const Login = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/api/auth/login", {
+      const res = await axios.post("https://deploybackend-p9x3.onrender.com/api/auth/login", {
         email: email,
         password: password,
       });
@@ -44,7 +44,7 @@ const Login = () => {
 
   const HandleVerify=async()=>{
       try {
-        const res=await axios.post("http://localhost:8000/api/auth/getIdAccount",{
+        const res=await axios.post("https://deploybackend-p9x3.onrender.com/api/auth/getIdAccount",{
           email
         })
         navigate("/verify/"+res.data.id)

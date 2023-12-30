@@ -36,7 +36,7 @@ const Post = ({ desc, likes, img, userId, createdAt, _id, userShare }) => {
 
   const HandleDeletePost=async()=>{
     try {
-      await axios.delete("http://localhost:8000/api/post/"+_id,{
+      await axios.delete("https://deploybackend-p9x3.onrender.com/api/post/"+_id,{
         data:{
           userId:userCurrent._id
         }
@@ -66,7 +66,7 @@ const Post = ({ desc, likes, img, userId, createdAt, _id, userShare }) => {
   const handleYes = async () => {
     try {
       const res = await axios.patch(
-        "http://localhost:8000/api/post/sharePost/" + _id,
+        "https://deploybackend-p9x3.onrender.com/api/post/sharePost/" + _id,
         {
           userId: userCurrent._id,
         },
@@ -92,7 +92,7 @@ const Post = ({ desc, likes, img, userId, createdAt, _id, userShare }) => {
   const fetchTheCommentWithPost = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/comment/post/" + _id
+        "https://deploybackend-p9x3.onrender.com/api/comment/post/" + _id
       );
       setAllCommentReply(res.data.allComment.length);
     } catch (error) {
@@ -105,7 +105,7 @@ const Post = ({ desc, likes, img, userId, createdAt, _id, userShare }) => {
   const fetchTheUser = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/user?" + "userId=" + userId
+        "https://deploybackend-p9x3.onrender.com/api/user?" + "userId=" + userId
       );
       setUser(res.data.user);
       if (likes.includes(userCurrent._id)) {
@@ -132,7 +132,7 @@ const Post = ({ desc, likes, img, userId, createdAt, _id, userShare }) => {
 
 
       const res = await axios.patch(
-        "http://localhost:8000/api/post/like/" + _id,
+        "https://deploybackend-p9x3.onrender.com/api/post/like/" + _id,
         {
           userId: userCurrent._id,
         },{

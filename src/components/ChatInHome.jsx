@@ -26,7 +26,7 @@ const ChatInHome = ({ userId ,UnUserClick}) => {
   const fetchTheFriendChat = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/user?userId=" + userId
+        "https://deploybackend-p9x3.onrender.com/api/user?userId=" + userId
       );
       setUser(res.data.user);
     } catch (error) {
@@ -37,7 +37,7 @@ const ChatInHome = ({ userId ,UnUserClick}) => {
   const fetchTheChat = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/conversation/conversation/chat",
+        "https://deploybackend-p9x3.onrender.com/api/conversation/conversation/chat",
         {
           yourId: currentUser._id,
           FriendId: userId,
@@ -84,7 +84,7 @@ const ChatInHome = ({ userId ,UnUserClick}) => {
       if (!content) {
         return;
       }
-      const res = await axios.post("http://localhost:8000/api/message", {
+      const res = await axios.post("https://deploybackend-p9x3.onrender.com/api/message", {
         conversationId: currentConversation,
         sender: currentUser._id,
         text: content,

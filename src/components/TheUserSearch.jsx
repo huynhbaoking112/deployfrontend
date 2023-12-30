@@ -21,14 +21,14 @@ const TheUserSearch = ({city, desc, from, username, _id,relationship,profilePict
         e.preventDefault()
         try {
             if(follow){
-                const res=await axios.patch("http://localhost:8000/api/user/"+_id+"/unfollower",{
+                const res=await axios.patch("https://deploybackend-p9x3.onrender.com/api/user/"+_id+"/unfollower",{
                     _id:user._id
                 })
                 dispatch(unfollow(user.followins.indexOf(_id)))
                 setFollow(false)
                 toast.success("UnFollow success!", { position: toast.POSITION.TOP_RIGHT });
             }else{
-                const res=await axios.patch("http://localhost:8000/api/user/"+_id+"/follower",{
+                const res=await axios.patch("https://deploybackend-p9x3.onrender.com/api/user/"+_id+"/follower",{
                     _id:user._id
                 })
                 dispatch(following(_id))

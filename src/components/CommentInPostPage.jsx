@@ -25,7 +25,7 @@ const CommentInPostPage = ({
   const fetchTheCommentWithPost = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/comment/post/" + postId
+        "https://deploybackend-p9x3.onrender.com/api/comment/post/" + postId
       );
       setAllCommentReply(res.data.allComment);
     } catch (error) {
@@ -42,7 +42,7 @@ const CommentInPostPage = ({
   const HandleClick = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/comment/post/" + postId,
+        "https://deploybackend-p9x3.onrender.com/api/comment/post/" + postId,
         {
           postId,
           authorPostId,

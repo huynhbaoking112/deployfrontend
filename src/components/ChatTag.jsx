@@ -11,7 +11,7 @@ const ChatTag = ({chat}) => {
     const [theSender,setTheSender]=useState()
     const fetchTheSender=async()=>{
         try {
-            const res=await axios.get("http://localhost:8000/api/user?userId="+chat?.sender)
+            const res=await axios.get("https://deploybackend-p9x3.onrender.com/api/user?userId="+chat?.sender)
             setTheSender(res.data.user);
          
         } catch (error) {

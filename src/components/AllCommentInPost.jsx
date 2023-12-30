@@ -29,7 +29,7 @@ const AllCommentInPost = ({ handleDecrementComment,comment, allCommentReply, set
     const fetchUserComment = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/api/user?userId=" + thisComment?.authorId
+          "https://deploybackend-p9x3.onrender.com/api/user?userId=" + thisComment?.authorId
         );
         setAuthorComment(res.data.user);
         if (thisComment.likes.includes(curretLoginUser._id)) {
@@ -58,7 +58,7 @@ const AllCommentInPost = ({ handleDecrementComment,comment, allCommentReply, set
     const HandleDeleteTheComment = async () => {
       try {
         const res = await axios.delete(
-          "http://localhost:8000/api/comment/post/comment/" + thisComment._id,
+          "https://deploybackend-p9x3.onrender.com/api/comment/post/comment/" + thisComment._id,
           {
             data: {
               method: "DELETE",
@@ -87,7 +87,7 @@ const AllCommentInPost = ({ handleDecrementComment,comment, allCommentReply, set
     const HandleChangeSubmit = async () => {
       try {
         const res = await axios.patch(
-          "http://localhost:8000/api/comment/post/comment/" + thisComment?._id,
+          "https://deploybackend-p9x3.onrender.com/api/comment/post/comment/" + thisComment?._id,
           {
             userId: curretLoginUser?._id,
             comment: valueChange,
@@ -107,7 +107,7 @@ const AllCommentInPost = ({ handleDecrementComment,comment, allCommentReply, set
     const HandleLikeComment = async () => {
       try {
         const res = await axios.patch(
-          "http://localhost:8000/api/comment/post/comment/" + thisComment?._id,
+          "https://deploybackend-p9x3.onrender.com/api/comment/post/comment/" + thisComment?._id,
           { userId: curretLoginUser?._id }
         );
         setThisComment(res.data.commentPost);
@@ -131,7 +131,7 @@ const AllCommentInPost = ({ handleDecrementComment,comment, allCommentReply, set
           throw new Error("Something's wrong, please try again.!");
         }
         const res = await axios.post(
-          "http://localhost:8000/api/comment/commentreply/" + thisComment?._id,
+          "https://deploybackend-p9x3.onrender.com/api/comment/commentreply/" + thisComment?._id,
           {
             authorId: curretLoginUser?._id,
             content: valueReplyComment,

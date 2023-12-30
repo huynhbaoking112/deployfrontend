@@ -10,7 +10,7 @@ const FriendOnline = ({inforFriend}) => {
   useEffect(()=>{
     const fetchTheFriend=async()=>{
       try {
-          const res=await axios.get("http://localhost:8000/api/user?userId="+inforFriend.userId) 
+          const res=await axios.get("https://deploybackend-p9x3.onrender.com/api/user?userId="+inforFriend.userId) 
           setTheFriend(res.data.user);
       } catch (error) {
         console.log(error);

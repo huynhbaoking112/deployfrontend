@@ -7,7 +7,7 @@ const FriendInUser = ({idFriend}) => {
 
   const fetchTheUser=async()=>{
     try {
-      const res=await axios.get("http://localhost:8000/api/user?userId="+idFriend)
+      const res=await axios.get("https://deploybackend-p9x3.onrender.com/api/user?userId="+idFriend)
       setInfor(res.data.user)   
     } catch (error) {
       console.log(error);

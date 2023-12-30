@@ -30,7 +30,7 @@ const Search = () => {
 
     const fetchTheUser=async()=>{
         try {
-            const res=await axios.get("http://localhost:8000/api/user?username="+searchQuery+"&page="+page)
+            const res=await axios.get("https://deploybackend-p9x3.onrender.com/api/user?username="+searchQuery+"&page="+page)
             setAllUser(res.data.user)
             toast.success("Success!", { position: toast.POSITION.TOP_RIGHT });
         } catch (error) {
@@ -41,7 +41,7 @@ const Search = () => {
     }
     const fetchThePost=async()=>{
         try {
-            const res=await axios.get("http://localhost:8000/api/post/postsearch/q?post="+searchQuery+"&page="+pagePost)
+            const res=await axios.get("https://deploybackend-p9x3.onrender.com/api/post/postsearch/q?post="+searchQuery+"&page="+pagePost)
             setAllPost(res.data.allpost)
             
         } catch (error) {

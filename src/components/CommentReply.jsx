@@ -39,7 +39,7 @@ const CommentReply = ({
     try {
       console.log(theCommentReply.authorId);
       const res = await axios.get(
-        "http://localhost:8000/api/user?userId=" + theCommentReply.authorId
+        "https://deploybackend-p9x3.onrender.com/api/user?userId=" + theCommentReply.authorId
       );
       setTheUserCommentReply(res.data.user);
     } catch (error) {
@@ -54,7 +54,7 @@ const CommentReply = ({
   const HandleLike = async () => {
     try {
       const res = await axios.patch(
-        "http://localhost:8000/api/comment/commentreply/" + commentId,
+        "https://deploybackend-p9x3.onrender.com/api/comment/commentreply/" + commentId,
         {
           userId: curretLoginUser._id,
           _id: theCommentReply._id,
@@ -78,7 +78,7 @@ const CommentReply = ({
   const HandleReply = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/comment/commentreply/" + commentId,
+        "https://deploybackend-p9x3.onrender.com/api/comment/commentreply/" + commentId,
         {
           authorId: curretLoginUser._id,
           content: reply,
@@ -98,7 +98,7 @@ const CommentReply = ({
   const HandleDeleteReplyComment = async () => {
     try {
       const res = await axios.delete(
-        "http://localhost:8000/api/comment/commentreply/" + commentId,
+        "https://deploybackend-p9x3.onrender.com/api/comment/commentreply/" + commentId,
         {
           data: {
             userId: curretLoginUser?._id,
@@ -126,7 +126,7 @@ const CommentReply = ({
         throw new Error("Something's wrong, please try again.!");
       }
       const res = await axios.patch(
-        "http://localhost:8000/api/comment/commentreply/" + commentId,
+        "https://deploybackend-p9x3.onrender.com/api/comment/commentreply/" + commentId,
         {
           content: valueChange,
           userId: curretLoginUser._id,

@@ -99,7 +99,7 @@ const closeModal=()=>{
     try {
       if (follow) {
         const res = await axios.patch(
-          "http://localhost:8000/api/user/" + params.userId + "/unfollower",
+          "https://deploybackend-p9x3.onrender.com/api/user/" + params.userId + "/unfollower",
           {
             _id: currentUser._id,
           }
@@ -111,7 +111,7 @@ const closeModal=()=>{
         });
       } else {
         const res = await axios.patch(
-          "http://localhost:8000/api/user/" + params.userId + "/follower",
+          "https://deploybackend-p9x3.onrender.com/api/user/" + params.userId + "/follower",
           {
             _id: currentUser._id,
           }
@@ -132,10 +132,10 @@ console.log(currentUser);
   const fetchProfile = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/post/allpost/" + params.userId
+        "https://deploybackend-p9x3.onrender.com/api/post/allpost/" + params.userId
       );
       const resPostShare = await axios.get(
-        "http://localhost:8000/api/post/getPostShare/" + params.userId
+        "https://deploybackend-p9x3.onrender.com/api/post/getPostShare/" + params.userId
       );
 
       dispatch(
@@ -159,7 +159,7 @@ console.log(currentUser);
   const fetchUserProfile = async () => {
     try {
       const resUser = await axios.get(
-        "http://localhost:8000/api/user?userId=" + params.userId
+        "https://deploybackend-p9x3.onrender.com/api/user?userId=" + params.userId
       );
       setUser(resUser.data.user);
     } catch (error) {
